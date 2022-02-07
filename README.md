@@ -16,15 +16,12 @@ A website dedicated to those interested in neuroscience including latest news, i
 
 ### **_Technology Used_**
 
-- **HTML**
-- **CSS**
-- **JavaScript**
 - **VSCode**
 - **Python**
 - **Postgres**
 - **Django**
 - **Python**
-- **Insomnia**
+- **Vue**
 - **Postico**
 
 ---
