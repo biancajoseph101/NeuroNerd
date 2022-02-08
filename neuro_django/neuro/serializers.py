@@ -21,6 +21,7 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     author = serializers.HyperlinkedRelatedField(
         view_name='user_detail',
+        # many=True,
         read_only=True
     )
     user_id = serializers.PrimaryKeyRelatedField(
@@ -38,7 +39,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('id', 'author', 'category', 'tag_id', 'user_id'
+        fields = ('id', 'author', 'category', 'tag_id', 'user_id',
                   'title', 'date', 'content', 'image_url', 'source')
 
 
@@ -50,12 +51,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     )
     user_url = serializers.ModelSerializer.serializer_url_field(
         view_name='user_detail')
-    post_id = serializers.PrimaryKeyRelatedField(
-        queryset=Post.objects.all(),
-        source='post'
-    )
+    # post_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=Post.objects.all(),
+    #     source='posts'
+    # )
 
     class Meta:
         model = CustomUser
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'email', 'password', 'is_logged_in', 'is_verified' 'posts', )
+                  'email', 'password', 'is_logged_in', 'is_verified', 'posts', 'user_url')
