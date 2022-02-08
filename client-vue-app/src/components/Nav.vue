@@ -1,10 +1,7 @@
 <template>
-  <!-- <nav>
+  <nav>
     <router-link to="/" name="Home" class="nav-btn">Home</router-link>
-    <router-link to="/categoryform" class="nav-btn">Add a Category</router-link>
-    <router-link to="/imageform" class="nav-btn">Upload a Picture</router-link>
-  </nav> -->
-  <h1>nav</h1>
+  </nav>
 </template>
 
 <script>
