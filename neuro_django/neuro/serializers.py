@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import Tag, Post, User
+from .models import Tag, Post
+from accounts.models import CustomUser
 
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):
     posts = serializers.HyperlinkedRelatedField(
         view_name='post_list',
-        many=True,
         read_only=True
     )
     tag_url = serializers.ModelSerializer.serializer_url_field(
@@ -15,7 +15,7 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tag
         fields = ('id', 'category_name', 'description',
-                  'image_url', 'posts',)
+                  'image_url', 'posts', 'tag_url',)
 
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
@@ -24,8 +24,8 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
     user_id = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(),
-        source='username'
+        queryset=CustomUser.objects.all(),
+        source='author'
     )
     category = serializers.HyperlinkedRelatedField(
         view_name='tag_detail',
@@ -33,12 +33,12 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
     )
     tag_id = serializers.PrimaryKeyRelatedField(
         queryset=Tag.objects.all(),
-        source='category_name'
+        source='category'
     )
 
     class Meta:
         model = Post
-        fields = ('id', 'author', 'user_id', 'category', 'tag_id',
+        fields = ('id', 'author', 'category', 'tag_id', 'user_id'
                   'title', 'date', 'content', 'image_url', 'source')
 
 
@@ -48,8 +48,14 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         many=True,
         read_only=True
     )
+    user_url = serializers.ModelSerializer.serializer_url_field(
+        view_name='user_detail')
+    post_id = serializers.PrimaryKeyRelatedField(
+        queryset=Post.objects.all(),
+        source='post'
+    )
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'email', 'password', 'is_logged_in', 'posts')
+                  'email', 'password', 'is_logged_in', 'is_verified' 'posts', )

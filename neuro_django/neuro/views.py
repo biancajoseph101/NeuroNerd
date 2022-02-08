@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
-from .models import Tag, Post, User
+from .models import Tag, Post
 from rest_framework import generics
 from .serializers import TagSerializer, PostSerializer, UserSerializer
+from accounts.models import CustomUser
 
 
 class TagList(generics.ListCreateAPIView):
@@ -23,3 +24,13 @@ class TagDetail(generics.RetrieveUpdateDestroyAPIView):
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+
+class UserList(generics.ListCreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
