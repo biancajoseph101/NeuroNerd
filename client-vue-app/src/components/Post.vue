@@ -101,8 +101,8 @@ export default {
         },
         {
           auth: {
-            username: 'neuro',
-            password: 'neuro'
+            username: 'nerduser',
+            password: 'nerdpassword'
           }
         }
       );

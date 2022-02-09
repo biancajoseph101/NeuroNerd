@@ -1,19 +1,14 @@
 <template>
   <div class="resource-container">
     <div class="container">
-      <img
-        :src="resource_card.image"
-        alt="picture"
-        :class="picclass"
-        @mouseover="mouseon"
-        @mouseleave="mouseoff"
-      />
-      <div v-if="showName" class="center">
-        {{ resource_card.topic }} {{ resource_card.content }}
+      <img :src="resource_card.image" alt="picture" />
+      <div>
+        {{ resource_card.topic }}
         {{ resource_card.link }}
       </div>
+      <div>{{ resource_card.content }}</div>
     </div>
-    <div @click="deleteImage" class="deleteBtn">x</div>
+    <div @click="deleteResource" class="deleteBtn">x</div>
   </div>
 </template>
 
@@ -29,7 +24,7 @@ export default {
     resource_card: Object
   },
   methods: {
-    async deleteImage() {
+    async deleteResource() {
       await axios.delete(
         `http://localhost:8000/resources/${this.resource_card.id}`,
         {
@@ -40,14 +35,6 @@ export default {
         }
       );
       this.$emit('handleDelete', this.resource_card.id);
-    },
-    mouseon() {
-      this.showName = true;
-      this.picclass = 'blur';
-    },
-    mouseoff() {
-      this.showName = false;
-      this.picclass = 'normal';
     }
   }
 };
@@ -60,31 +47,8 @@ img {
 }
 
 .container {
-  position: relative;
   display: flex;
   justify-content: center;
-}
-
-.center {
-  position: absolute;
-  top: 50%;
-  text-align: center;
-  font-size: 22px;
-  color: black;
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
-.blur {
-  opacity: 0.6;
-}
-
-.resource-container {
-  width: 300px;
-  margin-bottom: 10px;
 }
 
 .deleteBtn {

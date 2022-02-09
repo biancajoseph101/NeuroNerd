@@ -5,7 +5,7 @@
     </div>
     <div class="menu-item">
       <router-link to="/createpost" name="post" class="nav-btn"
-        >Add Post</router-link
+        >Add Article</router-link
       >
     </div>
     <div class="menu-item">
@@ -14,7 +14,9 @@
     <div class="menu-item">
       <router-link to="/login" name="Login" class="nav-btn">Login</router-link>
     </div>
-    <ResourceDrop title="Resources ⇣" />
+    <div class="resource-drop">
+      <ResourceDrop title="Resources ⇣" />
+    </div>
   </nav>
 </template>
 
@@ -44,12 +46,19 @@ export default {
 .nav-btn {
   color: white;
 }
+
+.resource-drop {
+  margin-left: 10%;
+  color: pink;
+  text-decoration: hotpink;
+}
 nav {
   font-size: 25px;
+  /* position: absolute; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: #80cbc4;
+  background-color: #000000;
 }
 </style>

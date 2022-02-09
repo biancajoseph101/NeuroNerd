@@ -13,7 +13,7 @@ const routes = [
   { path: '/createpost', component: Post, name: 'Post' },
   { path: '/createresource', component: ResourceForm, name: 'ResourceForm' },
   { path: '/news', component: News, name: 'News' },
-  { path: '/resources', component: ResourceDrop, name: 'ResourceDrop' },
+  { path: '/resourcedrop', component: ResourceDrop, name: 'ResourceDrop' },
   {
     path: '/resources/:resource_id',
     component: ResourceType,
