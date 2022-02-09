@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tag, Post
+from .models import Tag, Post, ResourceType, Resource
 from accounts.models import CustomUser
 from django.contrib.auth.admin import UserAdmin
 # Register your models here.
@@ -26,6 +26,8 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('email',)
 
 
+admin.site.register(Resource)
+admin.site.register(ResourceType)
 admin.site.register(Tag)
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(Post)
