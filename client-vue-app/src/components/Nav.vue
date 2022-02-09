@@ -1,6 +1,11 @@
 <template>
   <nav>
     <router-link to="/" name="Home" class="nav-btn">Home</router-link>
+    <router-link to="/login" name="Login" class="nav-btn">Login</router-link>
+    <router-link to="/createpost" name="post" class="nav-btn"
+      >Add Post</router-link
+    >
+    <router-link to="/news" name="news" class="nav-btn">News</router-link>
   </nav>
 </template>
 

@@ -6,9 +6,9 @@
           <h5>Post</h5>
           <input
             placeholder="Category"
-            :value="name"
-            name="name"
-            type="name"
+            :value="category"
+            name="category"
+            type="category"
             v-on:input="handleFormChange"
           />
           <input
@@ -27,9 +27,9 @@
           />
           <input
             placeholder="ImageURL"
-            :value="img_url"
-            name="img_url"
-            type="img_url"
+            :value="image_url"
+            name="image_url"
+            type="image_url"
             v-on:input="handleFormChange"
           />
           <input
@@ -57,7 +57,15 @@ export default {
     image_url: '',
     source: ''
   }),
+  mounted() {
+    this.getTags();
+  },
   methods: {
+    async getTags() {
+      const res = await axios.get(`http://localhost:8000/tags/`);
+      this.tags = res.data;
+    },
+
     handleFormChange(e) {
       this[e.target.name] = e.target.value;
     },
@@ -73,8 +81,8 @@ export default {
         },
         {
           auth: {
-            username: 'frog',
-            password: 'bianca123'
+            username: 'neuro',
+            password: 'neuro'
           }
         }
       );

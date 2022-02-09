@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1>home</h1>
+    <div>
+      <h2>{{ tag_array.category_name }}</h2>
+    </div>
   </div>
 </template>
 
@@ -10,19 +13,20 @@ export default {
   name: 'Home',
   components: {},
   data: () => ({
-    post_array: []
+    tag_array: []
   }),
   mounted() {
-    this.getPosts();
+    this.getTags();
   },
   methods: {
-    async getPosts() {
-      const res = await axios.get(`http://localhost:8000/posts/`);
-      this.post_array = res.data;
-    },
-    handleDelete(id) {
-      this.post_array = this.post_array.filter((post) => post.id !== id);
+    async getTags() {
+      const res = await axios.get(`http://localhost:8000/tags/`);
+      this.tag_array = res.data;
+      console.log(this.tag_array);
     }
+    // handleDelete(id) {
+    //   this.tag_aray = this.tag_array.filter((post) => post.id !== id);
+    // }
   }
 };
 </script>
