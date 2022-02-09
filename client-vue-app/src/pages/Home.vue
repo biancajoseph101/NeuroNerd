@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>home</h1>
-    <div>
-      <h2>{{ tag_array.category_name }}</h2>
+    <div v-for="tag in tag_array" :key="tag.id">
+      <h2>{{ tag_array[0].category_name }}</h2>
+      <img :src="tag_array[0].image_url" />
     </div>
   </div>
 </template>
@@ -13,7 +14,7 @@ export default {
   name: 'Home',
   components: {},
   data: () => ({
-    tag_array: []
+    tag_array: Object
   }),
   mounted() {
     this.getTags();
@@ -40,5 +41,10 @@ h3 {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+}
+
+img {
+  max-height: 200px;
+  border-radius: 7px 7px 0 0;
 }
 </style>

@@ -4,13 +4,24 @@
       <form @submit="handleSubmit">
         <div class="flex">
           <h5>Post</h5>
-          <input
+          <!-- <input
             placeholder="Category"
             :value="category"
             name="category"
             type="category"
             v-on:input="handleFormChange"
-          />
+          /> -->
+          <select
+            name="category"
+            :value="category"
+            class="selectCat"
+            v-on:select="handleFormChange"
+          >
+            <option value="">Select Category</option>
+            <option value="category">{{ tags[0].category_name }}</option>
+            <option value="category">{{ tags[1].category_name }}</option>
+            <option value="category">{{ tags[2].category_name }}</option>
+          </select>
           <input
             placeholder="Title"
             :value="title"
@@ -39,6 +50,13 @@
             type="source"
             v-on:input="handleFormChange"
           />
+          <input
+            placeholder="Author"
+            :value="author"
+            name="author"
+            type="author"
+            v-on:input="handleFormChange"
+          />
           <button class="btn" type="submit">Submit Post</button>
         </div>
       </form>
@@ -51,11 +69,13 @@ import axios from 'axios';
 export default {
   name: 'Post',
   data: () => ({
-    category: '',
+    category: Object,
     title: '',
     content: '',
     image_url: '',
-    source: ''
+    source: '',
+    author: '',
+    tags: ''
   }),
   mounted() {
     this.getTags();
@@ -94,6 +114,9 @@ export default {
 </script>
 
 <style scoped>
+.selectCat {
+  min-width: 500px;
+}
 h3 {
   color: #80cbc4;
 }
