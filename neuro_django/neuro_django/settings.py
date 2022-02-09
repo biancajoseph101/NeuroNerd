@@ -41,9 +41,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'neuro',
     'rest_framework',
+    # 'rest_framework.authtoken',
     'accounts',
     'corsheaders',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+]
+# CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_WHITELIST = (
+#     # TODO - set this properly for production
+#     'https://127.0.0.1:8080',
+#     'https://127.0.0.1:8000',
+# )
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
@@ -86,6 +99,7 @@ REST_FRAMEWORK = {
     )
 }
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -94,6 +108,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware'
+
 ]
 
 ROOT_URLCONF = 'neuro_django.urls'
