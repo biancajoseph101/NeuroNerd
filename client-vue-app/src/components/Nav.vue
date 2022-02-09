@@ -14,18 +14,19 @@
     <div class="menu-item">
       <router-link to="/login" name="Login" class="nav-btn">Login</router-link>
     </div>
-    <ResourceType title="ResourceType" />
+    <ResourceDrop title="Resources ⇣" />
   </nav>
 </template>
 
 <script>
+import ResourceDrop from './ResourceDrop.vue';
 export default {
   name: 'Nav',
   components: {
-    ResourceType
+    ResourceDrop
   },
   data: () => ({
-    categories: null
+    resources: null
   })
 };
 </script>
@@ -44,6 +45,7 @@ export default {
   color: white;
 }
 nav {
+  font-size: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="menu-item" @click="isOpen = !isOpen">
     <img :src="resourceDetails.picture" alt="" />
     <div class="center">{{ resourceDetails.resource_type }}</div>
     <div :key="resource_card.id" v-for="resource_card in resourceList">
@@ -14,6 +14,7 @@
 <script>
 // import { defineComponent } from '@vue/composition-api'
 import axios from 'axios';
+import ResourceCard from '../components/ResourceCard.vue';
 export default {
   name: 'ResourceType',
   components: {

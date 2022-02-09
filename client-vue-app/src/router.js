@@ -5,6 +5,7 @@ import Post from './components/Post';
 import News from './components/News';
 import ResourceType from './pages/ResourceType';
 import ResourceForm from './pages/ResourceForm';
+import ResourceDrop from './components/ResourceDrop';
 
 const routes = [
   { path: '/', component: Home, name: 'Home' },
@@ -12,6 +13,7 @@ const routes = [
   { path: '/createpost', component: Post, name: 'Post' },
   { path: '/createresource', component: ResourceForm, name: 'ResourceForm' },
   { path: '/news', component: News, name: 'News' },
+  { path: '/resources', component: ResourceDrop, name: 'ResourceDrop' },
   {
     path: '/resources/:resource_id',
     component: ResourceType,
