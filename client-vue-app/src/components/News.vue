@@ -25,7 +25,7 @@ export default {
   methods: {
     // async getNews() {
     //   const res = await axios.get(
-    //     `https://newsapi.org/v2/everything?q=neuroscience&apiKey=9b14a33f320e44b8a1906e3619bb679f`
+    // `https://newsapi.org/v2/everything?q=neuroscience&apiKey=9b14a33f320e44b8a1906e3619bb679f`
     //   );
     //   this.news = res.data.articles;
     //   console.log(this.news);

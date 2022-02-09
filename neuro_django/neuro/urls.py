@@ -12,4 +12,11 @@ urlpatterns = [
     path('posts/<int:pk>', views.PostDetail.as_view(), name='post_detail'),
     path('users/', views.UserList.as_view(), name='user_list'),
     path('users/<int:pk>', views.UserDetail.as_view(), name='user_detail'),
+    path('resourcetypes/', views.ResourceTypeList.as_view(),
+         name='resourcetype_list'),
+    path('resourcetypes/<int:pk>', views.ResourceTypeDetail.as_view(),
+         name='resourcetype_detail'),
+    path('resources/', views.ResourceList.as_view(), name='resource_list'),
+    path('resources/<int:pk>', views.ResourceDetail.as_view(),
+         name='resource_detail'),
 ]

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Tag, Post
+from .models import Tag, Post, ResourceType, Resource
 from accounts.models import CustomUser
 
 
@@ -60,3 +60,26 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = CustomUser
         fields = ('id', 'username', 'first_name', 'last_name',
                   'email', 'password', 'is_logged_in', 'is_verified', 'posts', 'user_url')
+
+
+class ResourceSerializer(serializers.ModelSerializer):
+    resource_type = serializers.PrimaryKeyRelatedField(
+        queryset=ResourceType.objects.all(),
+        many=True
+    )
+
+    class Meta:
+        model = Resource
+        fields = ('id', 'resource_type', 'topic', 'link', 'image', 'content')
+
+
+class ResourceTypeSerializer(serializers.ModelSerializer):
+    resource_list = ResourceSerializer(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = ResourceType
+        fields = ('id', 'resource_type', 'description',
+                  'picture', 'resource_list')

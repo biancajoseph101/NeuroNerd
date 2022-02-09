@@ -1,4 +1,5 @@
 -- settings.sql
+-- DROP DATABASE neuro;
 CREATE DATABASE neuro;
-CREATE USER neurouser WITH PASSWORD 'neuro';
-GRANT ALL PRIVILEGES ON DATABASE neuro TO neurouser;
+CREATE USER nerduser WITH PASSWORD 'nerdpassword';
+GRANT ALL PRIVILEGES ON DATABASE neuro TO nerduser;

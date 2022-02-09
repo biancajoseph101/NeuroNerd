@@ -27,3 +27,25 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ResourceType(models.Model):
+    resource_type = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    picture = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.resource_type
+
+
+class Resource(models.Model):
+    resource_type = models.ManyToManyField(
+        ResourceType, related_name="resource_list", blank=True
+    )
+    topic = models.CharField(max_length=100)
+    link = models.URLField(blank=True)
+    image = models.TextField(blank=True)
+    content = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.topic

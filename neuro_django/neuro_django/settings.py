@@ -142,8 +142,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'neuro',
-        'USER': 'neurouser',
-        'PASSWORD': 'neuro',
+        'USER': 'nerduser',
+        'PASSWORD': 'nerdpassword',
         'HOST': 'localhost'
     }
 }
