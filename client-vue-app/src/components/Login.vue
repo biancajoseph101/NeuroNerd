@@ -48,4 +48,10 @@ export default {
 };
 </script>
 
-<style lang="css"></style>
+<style>
+input {
+  width: 500px;
+  height: 60px;
+  margin: 10px;
+}
+</style>

@@ -55,6 +55,7 @@ export default {
   color: white;
   text-decoration: none;
 }
+
 a {
   color: white;
   text-decoration: none;

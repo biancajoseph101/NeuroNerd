@@ -7,8 +7,8 @@
         {{ resource_card.link }}
       </div>
       <div>{{ resource_card.content }}</div>
+      <div @click="deleteResource" class="deleteBtn">x</div>
     </div>
-    <div @click="deleteResource" class="deleteBtn">x</div>
   </div>
 </template>
 
@@ -16,10 +16,7 @@
 import axios from 'axios';
 export default {
   name: 'ResourceCard',
-  data: () => ({
-    showName: false,
-    picclass: 'normal'
-  }),
+  data: () => ({}),
   props: {
     resource_card: Object
   },
@@ -29,7 +26,7 @@ export default {
         `http://localhost:8000/resources/${this.resource_card.id}`,
         {
           auth: {
-            username: 'nerduser',
+            email: 'nerd@nerd.nerd',
             password: 'nerdpassword'
           }
         }
@@ -43,21 +40,23 @@ export default {
 <style scoped>
 img {
   max-height: 200px;
-  border-radius: 7px 7px 0 0;
+  margin: 20px;
 }
 
 .container {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
 .deleteBtn {
-  width: 100%;
+  width: 50px;
+  height: 30px;
   background-color: #80cbc4;
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
-  border-radius: 0 0 7px 7px;
+  border-radius: 4px;
 }
 
 .deleteBtn:hover {

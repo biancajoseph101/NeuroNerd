@@ -3,11 +3,11 @@
     <div class="form-container">
       <form @submit="handleSubmit">
         <div class="flex">
-          <h2>Knowledge is power. Share anything!</h2>
+          <h2>Knowledge is power. Share with the community!</h2>
 
           <select
-            name="resourcetype"
-            :value="resourcetype"
+            name="resourceTypes"
+            :value="resourceTypes"
             class="selectType"
             v-on:select="handleFormChange"
           >

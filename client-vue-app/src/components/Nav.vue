@@ -7,17 +7,15 @@
     </div>
     <div class="menu-item">
       <router-link to="/login" name="Login" class="nav-btn"
-        >Log In •
+        >Login•
       </router-link>
     </div>
     <div class="menu-item">
-      <router-link to="/news" name="news" class="nav-btn">
-        • News •
-      </router-link>
+      <router-link to="/news" name="news" class="nav-btn"> News• </router-link>
     </div>
     <div class="menu-item">
       <router-link to="/createpost" name="post" class="nav-btn">
-        • Article</router-link
+        Article</router-link
       >
     </div>
     <div class="resource-drop">
@@ -43,6 +41,7 @@ export default {
 .logo {
   max-height: 80px;
   margin-right: 20px;
+  margin-left: 20px;
 }
 .nav-btn {
   cursor: pointer;

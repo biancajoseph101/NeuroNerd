@@ -17,11 +17,24 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #00366d;
+  color: #ffffff;
   margin-top: 10px;
+  background-color: rgba(153, 141, 221, 0.753);
+  background-position: 100%;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  background-color: #252e79;
+
+  width: 100%;
+  min-height: 100%;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>home</h1>
+    <h1>sliding caurosel thing here</h1>
     <div v-for="tag in tag_array" :key="tag.id">
       <h2>{{ tag_array[0].category_name }}</h2>
       <img :src="tag_array[0].image_url" />
@@ -14,7 +14,7 @@ export default {
   name: 'Home',
   components: {},
   data: () => ({
-    tag_array: Object
+    tag_array: Array
   }),
   mounted() {
     this.getTags();

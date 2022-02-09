@@ -1,10 +1,9 @@
 <template>
   <div v-if="resourceDetails">
-    <div>{{ resourceDetails.resource_type }}</div>
+    <div class="type-name">{{ resourceDetails.resource_type }}</div>
     <div>{{ resourceDetails.description }}</div>
 
     <img :src="resourceDetails.picture" alt="image" />
-
     <div :key="resource_card.id" v-for="resource_card in resourceCardList">
       <ResourceCard
         v-bind:resource_card="resource_card"
@@ -51,29 +50,23 @@ export default {
 <style scoped>
 img {
   max-height: 200px;
-  border-radius: 7px 7px 0 0;
+  border-radius: 4px;
 }
 
-.container {
-  position: relative;
+.type-name {
+  font-size: 75px;
   display: flex;
   justify-content: center;
 }
 
-.center {
+.container {
   position: absolute;
-  top: 50%;
-  text-align: center;
-  font-size: 22px;
-  color: black;
+  display: grid;
+  justify-content: center;
 }
 
 img {
-  width: 100%;
+  width: 400px;
   height: auto;
-}
-
-.blur {
-  opacity: 0.6;
 }
 </style>
