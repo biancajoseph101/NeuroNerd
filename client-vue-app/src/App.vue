@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <Nav />
+    <ResourceDrop />
     <router-view header="Header"></router-view>
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav.vue';
+import ResourceDrop from './components/ResourceDrop.vue';
 export default {
   name: 'App',
   components: {
-    Nav
+    Nav,
+    ResourceDrop
   }
 };
 </script>

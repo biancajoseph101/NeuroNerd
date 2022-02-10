@@ -9,19 +9,34 @@
             name="resourceTypes"
             :value="resourceTypes"
             class="selectType"
-            v-on:select="handleFormChange"
           >
             <option value="">Select Resource Type</option>
-            <option value="resource_type">
-              {{ resourceTypes[0].resource_type }}
+            <option
+              v-for="resource_type in resourceTypes"
+              :key="resource_type.id"
+              value="resource_type"
+              name="resource_type"
+              v-on:select="handleFormChange"
+            >
+              {{ resource_type.resource_type }}
             </option>
-            <option value="resource_type">
+            <!-- <option value="resource_type">
               {{ resourceTypes[1].resource_type }}
             </option>
             <option value="resource_type">
               {{ resourceTypes[2].resource_type }}
             </option>
+            <option value="resource_type">
+              {{ resourceTypes[3].resource_type }}
+            </option> -->
           </select>
+          <!-- <input
+            placeholder="Resource Type"
+            :value="resource_type"
+            name="resource_type"
+            type="resource_type"
+            v-on:input="handleFormChange"
+          /> -->
           <input
             placeholder="Topic"
             :value="topic"
@@ -63,12 +78,12 @@ import axios from 'axios';
 export default {
   name: 'ResourceForm',
   data: () => ({
-    resource_type: Object,
+    resource_type: '',
     topic: '',
     link: '',
     image: '',
     content: '',
-    resourceTypes: ''
+    resourceTypes: Array
   }),
   mounted() {
     this.getResourceTypes();
@@ -77,6 +92,7 @@ export default {
     async getResourceTypes() {
       const res = await axios.get(`http://localhost:8000/resourcetypes/`);
       this.resourceTypes = res.data;
+      console.log(this.resourceTypes);
     },
 
     handleFormChange(e) {
@@ -87,6 +103,7 @@ export default {
       const res = await axios.post(
         `http://localhost:8000/resources/`,
         {
+          resource_type: this.resource_type.id,
           topic: this.topic,
           link: this.link,
           image: this.image,
