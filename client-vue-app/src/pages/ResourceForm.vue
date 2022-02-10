@@ -38,7 +38,7 @@
               {{ resource_type.resource_type }}
             </label>
           </div>
-          <!-- <span>selected types: {{ selectedTypes }}</span> -->
+          <span>selected types: {{ selectedTypes }}</span>
           <!-- <input
             placeholder="Resource Type"
             :value="resource_type"
@@ -105,6 +105,7 @@ export default {
     async getResourceTypes() {
       const res = await axios.get(`http://localhost:8000/resourcetypes/`);
       this.resourceTypes = res.data;
+
       //   console.log(this.resourceTypes);
     },
 
@@ -119,11 +120,11 @@ export default {
       //   console.log(e.target.value);
       //   this[e.target.id] = e.target.value;
       //   this.resource_type.push(e.target.value);
-      let arr = [];
-      parseInt(e.target.value);
-      arr.push(e.target.value);
-      this.resource_type = arr;
-      console.log(this.resource_type);
+      //   let arr = [];
+      //   parseInt(e.target.value);
+      this.selectedTypes.push(e.target.value);
+      this.resource_type = this.selectedTypes;
+      //   console.log(this.resource_type);
     },
 
     async handleSubmit(e) {

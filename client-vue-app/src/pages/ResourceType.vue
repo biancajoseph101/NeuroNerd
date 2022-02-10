@@ -8,7 +8,7 @@
       <ResourceCard
         v-bind:resource_card="resource_card"
         @handleDelete="handleDelete"
-        @handleUpdate="handleUpdate"
+        @resourceCardList="resourceCardList"
       />
     </div>
   </div>
@@ -25,8 +25,7 @@ export default {
   },
   data: () => ({
     resourceDetails: null,
-    resourceCardList: null,
-    resourceTopic: null
+    resourceCardList: null
   }),
   mounted: function () {
     this.getResourceDetails();
@@ -35,18 +34,11 @@ export default {
     async getResourceDetails() {
       let id = parseInt(this.$route.params.resource_id);
       const res = await axios.get(`http://localhost:8000/resourcetypes/${id}`);
-      //   console.log(res.data);
+      // console.log(res.data.resource_list[i].resource_type);
       this.resourceDetails = res.data;
       this.resourceCardList = res.data.resource_list;
-      this.resourceTopic = res.data.topic;
     },
     handleDelete(id) {
-      console.log(id);
-      this.resourceCardList = this.resourceCardList.filter(
-        (resourceCard) => resourceCard.id !== id
-      );
-    },
-    handleUpdate(id) {
       this.resourceCardList = this.resourceCardList.filter(
         (resourceCard) => resourceCard.id !== id
       );

@@ -12,6 +12,7 @@
           SOURCE: <a href="#">{{ resource_card.link }} </a>
         </h5>
       </div>
+      <br />
       <div>{{ resource_card.content }}</div>
       <div class="showForm">
         <button @click="showForm" class="updateBtn">edit</button>
@@ -23,7 +24,7 @@
               name="newTopic"
               type="text"
               v-on:input="handleFormChange"
-            />
+            /><br />
             <button @click="updateResource" class="submitBtn">submit</button>
           </form>
           <button @click="deleteResource" class="deleteBtn">x</button>
@@ -60,14 +61,25 @@ export default {
     },
     handleFormChange(e) {
       this[e.target.name] = e.target.value;
+      this.newTopic = e.target.value;
+      //   console.log(resource_type);
+      //   console.log(this.newTopic);
     },
+
     async updateResource(e) {
       e.preventDefault();
+      const response = await axios.get(
+        `http://localhost:8000/resources/${this.resource_card.id}`
+      );
+      const list = response.data.resource_type;
+      console.log(list);
+
       const res = await axios.put(
         `http://localhost:8000/resources/${this.resource_card.id}`,
         {
           showForm: true,
-          topic: this.newTopic
+          topic: this.newTopic,
+          resource_type: list
         },
         {
           auth: {
@@ -76,9 +88,10 @@ export default {
           }
         }
       );
-      alert('Your update has been made!');
-      this.$router.push(`/resources/${res.data.id}`);
-      this.$emit('handleUpdate', this.resource_card.id);
+      //   alert('Your update has been made!');
+      window.location.reload;
+      console.log(res);
+      //   this.$router.push(`/resources/${res.data.id}`);
     }
   }
 };
@@ -89,6 +102,7 @@ export default {
   visibility: colllapse;
 }
 img {
+  opacity: 900%;
   max-height: 200px;
   margin: 20px;
 }
@@ -97,6 +111,7 @@ img {
 }
 .container {
   display: flex;
+  grid-template-columns: max-content;
   align-items: center;
   margin: 20px;
 }
