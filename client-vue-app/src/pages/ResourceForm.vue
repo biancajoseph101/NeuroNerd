@@ -7,6 +7,7 @@
 
           <select
             name="resourceTypes"
+            v-on:change="handleSelectChange"
             :value="resourceTypes"
             class="selectType"
           >
@@ -14,9 +15,8 @@
             <option
               v-for="resource_type in resourceTypes"
               :key="resource_type.id"
-              value="resource_type"
+              :value="resource_type.id"
               name="resource_type"
-              v-on:select="handleFormChange"
             >
               {{ resource_type.resource_type }}
             </option>
@@ -66,7 +66,9 @@
             v-on:input="handleFormChange"
           />
 
-          <button class="btn" type="submit">Submit Post</button>
+          <button v-on:click="handleSubmit" class="btn" type="submit">
+            Submit Post
+          </button>
         </div>
       </form>
     </div>
@@ -78,7 +80,7 @@ import axios from 'axios';
 export default {
   name: 'ResourceForm',
   data: () => ({
-    resource_type: '',
+    resource_type: Array,
     topic: '',
     link: '',
     image: '',
@@ -92,18 +94,34 @@ export default {
     async getResourceTypes() {
       const res = await axios.get(`http://localhost:8000/resourcetypes/`);
       this.resourceTypes = res.data;
-      console.log(this.resourceTypes);
+      //   console.log(this.resourceTypes);
     },
 
     handleFormChange(e) {
+      //   console.log('apple');
+      //   console.log(e.target.value);
       this[e.target.name] = e.target.value;
     },
+
+    handleSelectChange(e) {
+      // e.target.id = resource_type.id
+      console.log(e.target.value);
+      //   this[e.target.id] = e.target.value;
+      //   this.resource_type.push(e.target.value);
+      let arr = [];
+      parseInt(e.target.value);
+      arr.push(e.target.value);
+      this.resource_type = arr;
+      console.log(this.resource_type);
+    },
+
     async handleSubmit(e) {
       e.preventDefault();
+
       const res = await axios.post(
         `http://localhost:8000/resources/`,
         {
-          resource_type: this.resource_type.id,
+          resource_type: this.resource_type,
           topic: this.topic,
           link: this.link,
           image: this.image,
@@ -116,6 +134,7 @@ export default {
           }
         }
       );
+      alert('Your submission has been posted!');
       this.$router.push(`/resources/${res.data.id}`);
       this.$router.go();
     }
