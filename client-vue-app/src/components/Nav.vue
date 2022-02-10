@@ -14,10 +14,16 @@
       <router-link to="/news" name="news" class="nav-btn"> News• </router-link>
     </div>
     <div class="menu-item">
+      <router-link to="/articles" name="articles" class="nav-btn">
+        Articles•
+      </router-link>
+    </div>
+    <div class="menu-item">
       <router-link to="/createpost" name="post" class="nav-btn">
-        Article</router-link
+        Post Article</router-link
       >
     </div>
+
     <div class="resource-drop">
       <ResourceDrop title="Resources ⇣" />
     </div>

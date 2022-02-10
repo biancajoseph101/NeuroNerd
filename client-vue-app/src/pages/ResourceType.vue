@@ -8,6 +8,7 @@
       <ResourceCard
         v-bind:resource_card="resource_card"
         @handleDelete="handleDelete"
+        @handleUpdate="handleUpdate"
       />
     </div>
   </div>
@@ -24,7 +25,8 @@ export default {
   },
   data: () => ({
     resourceDetails: null,
-    resourceCardList: null
+    resourceCardList: null,
+    resourceTopic: null
   }),
   mounted: function () {
     this.getResourceDetails();
@@ -36,9 +38,15 @@ export default {
       //   console.log(res.data);
       this.resourceDetails = res.data;
       this.resourceCardList = res.data.resource_list;
+      this.resourceTopic = res.data.topic;
     },
     handleDelete(id) {
       console.log(id);
+      this.resourceCardList = this.resourceCardList.filter(
+        (resourceCard) => resourceCard.id !== id
+      );
+    },
+    handleUpdate(id) {
       this.resourceCardList = this.resourceCardList.filter(
         (resourceCard) => resourceCard.id !== id
       );

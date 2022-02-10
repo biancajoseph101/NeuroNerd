@@ -2,9 +2,9 @@
   <div id="postform">
     <div class="form-container">
       <form @submit="handleSubmit">
-        <div class="flex">
+        <div>
           <h2>Knowledge is power. Share with the community!</h2>
-
+          <!-- 
           <select
             name="resourceTypes"
             v-on:change="handleSelectChange"
@@ -20,16 +20,23 @@
             >
               {{ resource_type.resource_type }}
             </option>
-            <!-- <option value="resource_type">
-              {{ resourceTypes[1].resource_type }}
-            </option>
-            <option value="resource_type">
-              {{ resourceTypes[2].resource_type }}
-            </option>
-            <option value="resource_type">
-              {{ resourceTypes[3].resource_type }}
-            </option> -->
-          </select>
+          </select> -->
+          <div
+            class="checkbox-div"
+            v-for="resource_type in resourceTypes"
+            :key="resource_type.id"
+            :value="resource_type.id"
+            name="resource_type"
+          >
+            <input
+              class="checkbox"
+              type="checkbox"
+              v-on:change="handleSelectChange"
+            />
+            <label class="checkbox-type">
+              {{ resource_type.resource_type }}
+            </label>
+          </div>
           <!-- <input
             placeholder="Resource Type"
             :value="resource_type"
@@ -37,35 +44,36 @@
             type="resource_type"
             v-on:input="handleFormChange"
           /> -->
-          <input
-            placeholder="Topic"
-            :value="topic"
-            name="topic"
-            type="topic"
-            v-on:input="handleFormChange"
-          />
-          <input
-            placeholder="Link"
-            :value="link"
-            name="link"
-            type="link"
-            v-on:input="handleFormChange"
-          />
-          <input
-            placeholder="Image URL"
-            :value="image"
-            name="image"
-            type="text"
-            v-on:input="handleFormChange"
-          />
-          <input
-            placeholder="Content"
-            :value="content"
-            name="content"
-            type="content"
-            v-on:input="handleFormChange"
-          />
-
+          <div class="flex">
+            <input
+              placeholder="Topic"
+              :value="topic"
+              name="topic"
+              type="topic"
+              v-on:input="handleFormChange"
+            />
+            <input
+              placeholder="Link"
+              :value="link"
+              name="link"
+              type="link"
+              v-on:input="handleFormChange"
+            />
+            <input
+              placeholder="Image URL"
+              :value="image"
+              name="image"
+              type="text"
+              v-on:input="handleFormChange"
+            />
+            <input
+              placeholder="Content"
+              :value="content"
+              name="content"
+              type="content"
+              v-on:input="handleFormChange"
+            />
+          </div>
           <button v-on:click="handleSubmit" class="btn" type="submit">
             Submit Post
           </button>
@@ -136,7 +144,6 @@ export default {
       );
       alert('Your submission has been posted!');
       this.$router.push(`/resources/${res.data.id}`);
-      this.$router.go();
     }
   }
 };
@@ -164,5 +171,16 @@ input {
 .btn {
   width: 509px;
   margin: 10px;
+}
+
+.checkbox-div {
+  font-size: 30px;
+  display: flex;
+}
+
+.checkbox {
+  max-height: 30px;
+  border-radius: 10px;
+  display: flex;
 }
 </style>
