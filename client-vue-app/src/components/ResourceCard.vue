@@ -13,7 +13,7 @@
         </h5>
       </div>
       <div>{{ resource_card.content }}</div>
-      <div>
+      <div class="showForm">
         <button @click="showForm" class="updateBtn">edit</button>
         <div class="form-container">
           <form>
@@ -21,7 +21,7 @@
               placeholder="new topic name"
               :value="newTopic"
               name="newTopic"
-              type="topic"
+              type="text"
               v-on:input="handleFormChange"
             />
             <button @click="updateResource" class="submitBtn">submit</button>
@@ -76,6 +76,7 @@ export default {
           }
         }
       );
+      alert('Your update has been made!');
       this.$router.push(`/resources/${res.data.id}`);
       this.$emit('handleUpdate', this.resource_card.id);
     }
@@ -84,11 +85,16 @@ export default {
 </script>
 
 <style scoped>
+.form-container {
+  visibility: colllapse;
+}
 img {
   max-height: 200px;
   margin: 20px;
 }
-
+.showForm {
+  visibility: visible;
+}
 .container {
   display: flex;
   align-items: center;

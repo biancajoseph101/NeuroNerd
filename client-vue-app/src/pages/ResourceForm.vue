@@ -3,7 +3,7 @@
     <div class="form-container">
       <form @submit="handleSubmit">
         <div>
-          <h2>Knowledge is power. Share with the community!</h2>
+          <h1>Knowledge is power. Share with the community!</h1>
           <!-- 
           <select
             name="resourceTypes"
@@ -21,22 +21,24 @@
               {{ resource_type.resource_type }}
             </option>
           </select> -->
+          <h4>Select categories below</h4>
           <div
             class="checkbox-div"
-            v-for="resource_type in resourceTypes"
             :key="resource_type.id"
-            :value="resource_type.id"
-            name="resource_type"
+            v-for="resource_type in resourceTypes"
           >
             <input
               class="checkbox"
               type="checkbox"
+              :value="resource_type.id"
+              name="resource_type"
               v-on:change="handleSelectChange"
             />
-            <label class="checkbox-type">
+            <label :value="resource_type.id" class="checkbox-type">
               {{ resource_type.resource_type }}
             </label>
           </div>
+          <!-- <span>selected types: {{ selectedTypes }}</span> -->
           <!-- <input
             placeholder="Resource Type"
             :value="resource_type"
@@ -88,6 +90,7 @@ import axios from 'axios';
 export default {
   name: 'ResourceForm',
   data: () => ({
+    selectedTypes: [],
     resource_type: Array,
     topic: '',
     link: '',
@@ -113,7 +116,7 @@ export default {
 
     handleSelectChange(e) {
       // e.target.id = resource_type.id
-      console.log(e.target.value);
+      //   console.log(e.target.value);
       //   this[e.target.id] = e.target.value;
       //   this.resource_type.push(e.target.value);
       let arr = [];
@@ -179,7 +182,9 @@ input {
 }
 
 .checkbox {
+  margin-left: 300px;
   max-height: 30px;
+  max-width: 30px;
   border-radius: 10px;
   display: flex;
 }
