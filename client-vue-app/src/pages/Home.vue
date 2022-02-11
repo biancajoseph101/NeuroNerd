@@ -102,7 +102,7 @@ export default {
 <style scoped>
 .carousel {
   overflow: 1;
-  background-color: rgba(182, 169, 169, 0.164);
+  /* background-color: rgba(182, 169, 169, 0.164); */
   padding-bottom: 20px;
   /* padding-top: 20px; */
 }
@@ -110,10 +110,10 @@ h2 {
   margin-top: 50px;
   padding-top: 5px;
   display: flex;
-  font-size: 50px;
+  font-size: 60px;
   justify-content: space-around;
   width: 100%;
-  color: #94eee5be;
+  color: #94eee58c;
 }
 .buttons {
   margin-top: 80px;
@@ -155,12 +155,14 @@ button:hover {
 }
 
 img {
+  margin-top: 50px;
   max-height: 290px;
-  border: 44px solid rgba(187, 99, 216, 0);
-  border-radius: 70px;
+  border: 14px solid rgba(173, 231, 248, 0.582);
+  border-radius: 30px;
 }
 img:hover {
-  border: 44px solid rgba(223, 247, 243, 0.418);
-  border-radius: 50px;
+  border: 14px solid rgb(173, 231, 248);
+  border-radius: 30px;
+  transform: scale(1.2);
 }
 </style>

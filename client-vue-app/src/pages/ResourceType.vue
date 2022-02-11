@@ -53,10 +53,19 @@ img {
   border-radius: 4px;
 }
 
-.type-name {
+/* .type-name {
   font-size: 75px;
   display: flex;
   justify-content: center;
+} */
+.type-name {
+  margin-top: 50px;
+  padding-top: 5px;
+  display: flex;
+  font-size: 60px;
+  justify-content: space-around;
+  width: 100%;
+  color: #94eee58c;
 }
 
 .container {

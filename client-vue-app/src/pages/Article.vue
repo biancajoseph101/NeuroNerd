@@ -1,17 +1,27 @@
 <template>
   <div>
-    <h1>Articles</h1>
-    <div class="container" v-for="tag in tag_array" :key="tag.id">
-      <h1>{{ tag.title }}</h1>
-
-      <img :src="tag.image_url" />
-      <h3>{{ tag.content }}</h3>
-
-      <h5 class="source">
+    <h2>Articles</h2>
+    <div class="container">
+      <div class="article" v-for="tag in tag_array" :key="tag.id">
         <h4>{{ tag.date }}</h4>
+        <h1>{{ tag.title }}</h1>
 
-        SOURCE: <a href="#">{{ tag.source }}</a>
-      </h5>
+        <img :src="tag.image_url" />
+
+        <div :class="{ readLess: readMore == true }" class="content">
+          <h3>{{ tag.content }}</h3>
+        </div>
+        <div v-if="readMore == true" class="read-more">
+          <button @click="readMore = !readMore">Expand</button>
+        </div>
+        <div v-else class="read-less">
+          <button @click="readMore = !readMore">Collapse</button>
+        </div>
+
+        <h5 class="source">
+          SOURCE: <a href="#">{{ tag.source }}</a>
+        </h5>
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +32,8 @@ export default {
   name: 'Article',
   components: {},
   data: () => ({
-    tag_array: Array
+    tag_array: Array,
+    readMore: false
   }),
   mounted() {
     this.getTags();
@@ -41,9 +52,13 @@ export default {
 </script>
 <style scoped>
 a {
-  color: rgb(16, 7, 100);
+  color: rgb(55, 43, 160);
 }
-.container {
+
+button {
+  background-color: white;
+}
+.article {
   margin: 50px;
   display: flex;
   flex-wrap: wrap;
@@ -52,11 +67,40 @@ a {
   background: rgba(29, 82, 110, 255);
   border-radius: 10px;
   text-transform: initial;
-  padding: 25px;
+  padding: 2px;
+  max-width: 800px;
 }
 
+.readLess {
+  height: 200px;
+  overflow: hidden;
+}
+
+.read-more,
+.read-less {
+  display: inline-block;
+  color: white;
+}
+.container {
+  /* max-width: 900px; */
+  display: flex;
+  justify-content: space-between;
+
+  flex-direction: row;
+}
 img {
-  max-height: 200px;
-  border-radius: 10px;
+  height: 100px;
+  border-radius: 3px;
+  opacity: 80%;
+}
+
+h2 {
+  margin-top: 50px;
+  padding-top: 5px;
+  display: flex;
+  font-size: 60px;
+  justify-content: space-around;
+  width: 100%;
+  color: #94eee58c;
 }
 </style>

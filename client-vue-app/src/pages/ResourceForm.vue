@@ -162,21 +162,22 @@ export default {
 .selectType {
   min-width: 500px;
 }
-h3 {
+h1 {
   color: #80cbc4;
+  font-style: italic;
 }
 input {
   width: 700px;
   height: 100px;
   margin: 10px;
-  font-size: 30px;
-  text-align: center;
+  font-size: 20px;
 }
 .checky {
   font-size: 20px;
+  display: flex;
+  max-width: 400px;
 }
 .flex {
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
