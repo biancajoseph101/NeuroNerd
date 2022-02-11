@@ -42,7 +42,7 @@ export default {
     async getTags() {
       const res = await axios.get(`http://localhost:8000/posts/`);
       this.tag_array = res.data;
-      console.log(this.tag_array);
+      // console.log(this.tag_array);
     }
     // handleDelete(id) {
     //   this.tag_aray = this.tag_array.filter((post) => post.id !== id);
@@ -73,16 +73,15 @@ button:hover {
   cursor: pointer;
 }
 .article {
-  margin: 50px;
+  margin: 30px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: space-around;
   background: rgba(29, 82, 110, 255);
   border-radius: 10px;
   text-transform: initial;
   padding: 20px;
-  /* max-width: 800px; */
+  max-width: 500px;
 }
 
 .readLess {
@@ -98,14 +97,17 @@ button:hover {
 .container {
   /* max-width: 900px; */
   display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
   justify-content: space-between;
-  flex-direction: column;
   flex-wrap: wrap;
-  max-width: 400px;
+}
+.container > * {
+  flex: 1 1 auto;
 }
 img {
-  height: 150px;
-  border-radius: 8px;
+  height: 250px;
+  border-radius: 4px;
   opacity: 80%;
 }
 
@@ -127,6 +129,6 @@ h1 {
   padding: 10px;
   color: white;
   border-radius: 12px;
-  max-height: 15px;
+  max-height: 25px;
 }
 </style>

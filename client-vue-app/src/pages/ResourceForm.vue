@@ -4,26 +4,10 @@
       <form @submit="handleSubmit">
         <div>
           <h1>Knowledge is power. Share with the community!</h1>
-          <!-- 
-          <select
-            name="resourceTypes"
-            v-on:change="handleSelectChange"
-            :value="resourceTypes"
-            class="selectType"
-          >
-            <option value="">Select Resource Type</option>
-            <option
-              v-for="resource_type in resourceTypes"
-              :key="resource_type.id"
-              :value="resource_type.id"
-              name="resource_type"
-            >
-              {{ resource_type.resource_type }}
-            </option>
-          </select> -->
-          <div class="flex">
+
+          <h4>Select categories below</h4>
+          <div class="checky">
             <div class="checky">
-              <h4>Select categories below</h4>
               <div
                 class="checkbox-div"
                 :key="resource_type.id"
@@ -42,45 +26,48 @@
               </div>
               <span class="hide">selected types: {{ selectedTypes }}</span>
             </div>
-            <!-- <input
+          </div>
+          <!-- <input
             placeholder="Resource Type"
             :value="resource_type"
             name="resource_type"
             type="resource_type"
             v-on:input="handleFormChange"
           /> -->
-
-            <input
-              placeholder="Topic"
-              :value="topic"
-              name="topic"
-              type="topic"
-              v-on:input="handleFormChange"
-            />
-            <input
-              placeholder="Link"
-              :value="link"
-              name="link"
-              type="link"
-              v-on:input="handleFormChange"
-            />
-            <input
-              placeholder="Image URL"
-              :value="image"
-              name="image"
-              type="text"
-              v-on:input="handleFormChange"
-            />
-            <input
-              placeholder="Content"
-              :value="content"
-              name="content"
-              type="content"
-              v-on:input="handleFormChange"
-            />
-            <button v-on:click="handleSubmit" class="btn" type="submit">
-              Submit Post
-            </button>
+          <div>
+            <div class="flex">
+              <input
+                placeholder="Topic"
+                :value="topic"
+                name="topic"
+                type="topic"
+                v-on:input="handleFormChange"
+              />
+              <input
+                placeholder="Link"
+                :value="link"
+                name="link"
+                type="link"
+                v-on:input="handleFormChange"
+              />
+              <input
+                placeholder="Image URL"
+                :value="image"
+                name="image"
+                type="text"
+                v-on:input="handleFormChange"
+              />
+              <input
+                placeholder="Content"
+                :value="content"
+                name="content"
+                type="content"
+                v-on:input="handleFormChange"
+              />
+              <button v-on:click="handleSubmit" class="btn" type="submit">
+                Submit Post
+              </button>
+            </div>
           </div>
         </div>
       </form>
@@ -172,11 +159,7 @@ input {
   margin: 10px;
   font-size: 20px;
 }
-.checky {
-  font-size: 20px;
-  display: flex;
-  max-width: 400px;
-}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -200,16 +183,27 @@ input {
   cursor: pointer;
 }
 .checkbox-div {
-  font-size: 30px;
+  font-size: 20px;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: wrap;
+  float: right;
 }
-
+.checky {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 40px;
+  flex: 1 1 auto;
+  margin-left: 20%;
+}
 .checkbox {
-  margin-left: 300px;
   max-height: 30px;
   max-width: 30px;
   border-radius: 10px;
   display: flex;
+
   cursor: pointer;
 }
 </style>
