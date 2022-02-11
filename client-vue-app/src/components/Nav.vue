@@ -1,37 +1,4 @@
 <template>
-  <!-- <nav>
-    <div class="menu-item">
-      <router-link to="/" name="Home" class="nav-btn"
-        ><img class="logo" src="https://i.imgur.com/Ihwcu0y.jpg"
-      /></router-link>
-    </div>
-    <div class="menu">
-      <div class="menu-item">
-        <router-link to="/login" name="Login" class="nav-btn"
-          >Login•
-        </router-link>
-      </div>
-      <div class="menu-item">
-        <router-link to="/news" name="news" class="nav-btn">
-          News•
-        </router-link>
-      </div>
-      <div class="menu-item">
-        <router-link to="/articles" name="articles" class="nav-btn">
-          Articles•
-        </router-link>
-      </div>
-      <div class="menu-item">
-        <router-link to="/createpost" name="post" class="nav-btn">
-          Post</router-link
-        >
-      </div>
-      <div class="resource-drop">
-        <ResourceDrop title="☰" />
-      </div>
-    </div>
-  </nav> -->
-
   <div class="nav">
     <div class="left">
       <router-link to="/" name="Home" class="nav-btn"
@@ -104,10 +71,11 @@ export default {
 }
 .left {
   text-align: left;
-  max-width: 500px;
+  max-width: 400px;
 }
 .middle {
   text-align: left;
+  padding-bottom: 20px;
 }
 .right {
   max-width: 300px;

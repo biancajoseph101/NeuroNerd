@@ -7,7 +7,8 @@
       </div>
     </div>
     <div class="buttons">
-      <button @click="right">⇷</button><button @click="left">⇸</button>
+      <div class="righty"><button @click="right">⇷</button></div>
+      <div><button @click="left">⇸</button></div>
     </div>
   </div>
 </template>
@@ -100,36 +101,40 @@ export default {
 </script>
 <style scoped>
 .carousel {
-  width: 900px;
   overflow: 1;
+  background-color: rgba(182, 169, 169, 0.164);
+  padding-bottom: 20px;
+  /* padding-top: 20px; */
 }
 h2 {
+  margin-top: 50px;
+  padding-top: 5px;
   display: flex;
   font-size: 50px;
-  margin-left: 490px;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
+  color: #94eee5be;
 }
 .buttons {
-  margin-top: 100px;
-  margin-left: 900px;
+  margin-top: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
+
 button {
   min-width: 300px;
-  min-height: 200px;
+  min-height: 100px;
   border-radius: 20px;
   font-size: 100px;
   opacity: 80%;
-  background-color: rgb(187, 76, 12);
+  background-color: rgba(248, 105, 23, 0.692);
   color: white;
-  border: 5px;
-  margin-right: 50px;
+  border: 5px solid;
 }
 button:hover {
   font-weight: bolder;
-  background-color: rgba(7, 73, 82, 0.712);
+  background-color: rgba(25, 152, 168, 0.774);
+  cursor: pointer;
 }
 .inner {
   white-space: nowrap;
@@ -137,23 +142,25 @@ button:hover {
 }
 
 .hack {
-  width: 400px;
-  height: 400px;
-  margin-right: 190px;
+  width: 300px;
+  height: 350px;
+  margin-right: 100px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .hack:hover {
-  transform: translateY(-10px);
-}
-h3 {
-  color: #80cbc4;
+  transform: translateY(-55px) translateX(-50px);
 }
 
 img {
-  max-height: 400px;
-  border-radius: 15px;
+  max-height: 290px;
+  border: 44px solid rgba(187, 99, 216, 0);
+  border-radius: 70px;
+}
+img:hover {
+  border: 44px solid rgba(223, 247, 243, 0.418);
+  border-radius: 50px;
 }
 </style>

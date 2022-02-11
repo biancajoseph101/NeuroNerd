@@ -133,6 +133,7 @@ img {
 .updateBtn:hover {
   background-color: #20af2c;
   color: white;
+  cursor: pointer;
 }
 .submitBtn {
   width: 100px;
@@ -146,6 +147,7 @@ img {
 .submitBtn:hover {
   background-color: #20af2c;
   color: white;
+  cursor: pointer;
 }
 .deleteBtn {
   width: 50px;

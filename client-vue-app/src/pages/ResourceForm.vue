@@ -170,6 +170,7 @@ input {
   height: 100px;
   margin: 10px;
   font-size: 30px;
+  text-align: center;
 }
 .checky {
   font-size: 20px;
@@ -182,13 +183,14 @@ input {
   align-items: center;
 }
 .hide {
-  color: black;
+  color: rgba(7, 27, 54, 255);
 }
 .btn {
   width: 710px;
   height: 60px;
   margin: 10px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .checkbox-div {
@@ -202,5 +204,6 @@ input {
   max-width: 30px;
   border-radius: 10px;
   display: flex;
+  cursor: pointer;
 }
 </style>
