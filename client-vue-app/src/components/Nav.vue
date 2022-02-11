@@ -20,7 +20,7 @@
     </div>
     <div class="menu-item">
       <router-link to="/createpost" name="post" class="nav-btn">
-        Post Article</router-link
+        Post</router-link
       >
     </div>
 
@@ -45,9 +45,12 @@ export default {
 
 <style scoped>
 .logo {
-  max-height: 80px;
+  max-height: 250px;
   margin-right: 20px;
   margin-left: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 20px;
 }
 .nav-btn {
   cursor: pointer;
@@ -63,15 +66,18 @@ export default {
 }
 
 .resource-drop {
+  background-color: rgba(248, 248, 255, 0.336);
   margin-left: 50%;
 }
 nav {
-  font-size: 25px;
-  /* position: absolute; */
+  margin-top: 100px;
+  font-size: 35px;
   display: flex;
+  height: 250px;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: #252e79;
+  background-color: rgba(84, 2, 100, 0.541);
+  /* background-color: #252e79; */
 }
 </style>

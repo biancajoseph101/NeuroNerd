@@ -59,8 +59,10 @@ export default {
 a {
   color: white;
   text-decoration: none;
+  margin-top: 50px;
 }
 .sub-menu {
+  margin-top: 50px;
   text-transform: none;
   cursor: pointer;
 

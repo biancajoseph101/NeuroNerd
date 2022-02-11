@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="buttons">
-      <button @click="right">></button><button @click="left">></button>
+      <button @click="right">⇷</button><button @click="left">⇸</button>
     </div>
   </div>
 </template>
@@ -106,11 +106,12 @@ export default {
 h2 {
   display: flex;
   font-size: 50px;
-  margin-left: 390px;
+  margin-left: 490px;
   justify-content: center;
   width: 100%;
 }
 .buttons {
+  margin-top: 100px;
   margin-left: 900px;
   display: flex;
   justify-content: center;
@@ -121,27 +122,31 @@ button {
   border-radius: 20px;
   font-size: 100px;
   opacity: 80%;
-  background-color: rgba(0, 0, 255, 0.432);
+  background-color: rgb(187, 76, 12);
   color: white;
   border: 5px;
   margin-right: 50px;
 }
 button:hover {
   font-weight: bolder;
-  background-color: lightpink;
+  background-color: rgba(7, 73, 82, 0.712);
 }
 .inner {
   white-space: nowrap;
-  transition: transform 10s;
+  transition: transform 1s;
 }
 
 .hack {
-  width: 600px;
-  height: 600px;
-  margin-right: 5px;
+  width: 400px;
+  height: 400px;
+  margin-right: 190px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.hack:hover {
+  transform: translateY(-10px);
 }
 h3 {
   color: #80cbc4;

@@ -20,7 +20,9 @@ export default {
 
 <style>
 #app {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  text-transform: uppercase;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

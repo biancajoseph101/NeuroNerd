@@ -21,32 +21,35 @@
               {{ resource_type.resource_type }}
             </option>
           </select> -->
-          <h4>Select categories below</h4>
-          <div
-            class="checkbox-div"
-            :key="resource_type.id"
-            v-for="resource_type in resourceTypes"
-          >
-            <input
-              class="checkbox"
-              type="checkbox"
-              :value="resource_type.id"
-              name="resource_type"
-              v-on:change="handleSelectChange"
-            />
-            <label :value="resource_type.id" class="checkbox-type">
-              {{ resource_type.resource_type }}
-            </label>
-          </div>
-          <span>selected types: {{ selectedTypes }}</span>
-          <!-- <input
+          <div class="flex">
+            <div class="checky">
+              <h4>Select categories below</h4>
+              <div
+                class="checkbox-div"
+                :key="resource_type.id"
+                v-for="resource_type in resourceTypes"
+              >
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  :value="resource_type.id"
+                  name="resource_type"
+                  v-on:change="handleSelectChange"
+                />
+                <label :value="resource_type.id" class="checkbox-type">
+                  {{ resource_type.resource_type }}
+                </label>
+              </div>
+              <span>selected types: {{ selectedTypes }}</span>
+            </div>
+            <!-- <input
             placeholder="Resource Type"
             :value="resource_type"
             name="resource_type"
             type="resource_type"
             v-on:input="handleFormChange"
           /> -->
-          <div class="flex">
+
             <input
               placeholder="Topic"
               :value="topic"
@@ -75,10 +78,10 @@
               type="content"
               v-on:input="handleFormChange"
             />
+            <button v-on:click="handleSubmit" class="btn" type="submit">
+              Submit Post
+            </button>
           </div>
-          <button v-on:click="handleSubmit" class="btn" type="submit">
-            Submit Post
-          </button>
         </div>
       </form>
     </div>
@@ -118,10 +121,11 @@ export default {
     handleSelectChange(e) {
       // e.target.id = resource_type.id
       //   console.log(e.target.value);
-      //   this[e.target.id] = e.target.value;
-      //   this.resource_type.push(e.target.value);
-      //   let arr = [];
-      //   parseInt(e.target.value);
+      // this[e.target.id] = e.target.value;
+      // this.resource_type.push(e.target.value);
+      // let arr = [];
+      // parseInt(e.target.value);
+
       this.selectedTypes.push(e.target.value);
       this.resource_type = this.selectedTypes;
       //   console.log(this.resource_type);
@@ -162,9 +166,12 @@ h3 {
   color: #80cbc4;
 }
 input {
-  width: 500px;
-  height: 60px;
+  width: 700px;
+  height: 100px;
   margin: 10px;
+}
+.checky {
+  font-size: 20px;
 }
 .flex {
   width: 100vw;
@@ -174,7 +181,8 @@ input {
   align-items: center;
 }
 .btn {
-  width: 509px;
+  width: 700px;
+  height: 60px;
   margin: 10px;
 }
 

@@ -1,15 +1,14 @@
 <template>
   <div class="resource-container">
     <div class="container">
+      <h1>
+        {{ resource_card.topic }}
+      </h1>
       <img :src="resource_card.image" alt="picture" />
-      <h5 class="source">
+      <h3 class="source">
         SOURCE: <a href="#">{{ resource_card.link }} </a>
-      </h5>
-      <div>
-        <h2>
-          {{ resource_card.topic }}
-        </h2>
-      </div>
+      </h3>
+      <div></div>
 
       <br />
       <div>{{ resource_card.content }}</div>
@@ -102,6 +101,7 @@ export default {
   visibility: colllapse;
 }
 .container {
+  background-color: rgba(128, 128, 128, 0.308);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,7 +157,7 @@ img {
   border-radius: 4px;
 }
 a {
-  color: rgb(16, 7, 100);
+  color: rgb(22, 176, 236);
 }
 .deleteBtn:hover {
   background-color: #ff0000;
