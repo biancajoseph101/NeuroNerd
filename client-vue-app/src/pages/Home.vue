@@ -1,14 +1,19 @@
 <template>
-  <div class="carousel">
-    <h2>#NEUROHACKS</h2>
-    <div class="inner" ref="inner" :style="innerStyles">
-      <div class="hack" v-for="hack in hacks" :key="hack.id">
-        <img :src="hack.image" alt="image" />
-      </div>
+  <div>
+    <div>
+      <h1>Latest in NEuro news</h1>
     </div>
-    <div class="buttons">
-      <div class="righty"><button @click="right">⇷</button></div>
-      <div><button @click="left">⇸</button></div>
+    <div class="carousel">
+      <h2>#NEUROHACKS</h2>
+      <div class="inner" ref="inner" :style="innerStyles">
+        <div class="hack" v-for="hack in hacks" :key="hack.id">
+          <img :src="hack.image" alt="image" />
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="righty"><button @click="right">⇷</button></div>
+        <div><button @click="left">⇸</button></div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,6 +21,7 @@
 <script>
 export default {
   name: 'Home',
+  components: {},
   data() {
     return {
       hacks: [
@@ -31,6 +37,7 @@ export default {
         { image: 'https://i.imgur.com/NT6w1Ih.jpg' },
         { image: 'https://i.imgur.com/3bVkk0k.jpg' }
       ],
+      articles: [],
       innerStyles: {},
       step: '',
       transitioning: false
@@ -129,22 +136,12 @@ button {
   opacity: 80%;
   background-image: linear-gradient(to right, #1a4344, #3b9698, #8ecacb);
   color: white;
-  border: 5px solid;
+  border: 3px solid rgb(0, 52, 82);
 }
 button:hover {
   font-weight: bolder;
   cursor: pointer;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  background-image: linear-gradient(
-    to right,
-    rgb(238, 162, 48),
-    #f0d225,
-    #d68000
-  );
-  box-shadow: 0 4px 5px 0 rgba(16, 151, 147, 0.575);
+  background: rgba(255, 255, 255, 0.747);
 }
 
 .inner {

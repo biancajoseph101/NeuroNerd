@@ -1,37 +1,33 @@
 <template>
   <div class="nav">
     <div class="left">
-      <router-link to="/" name="Home" class="nav-btn"
+      <router-link to="/" name="Home"
         ><img class="logo" src="https://i.imgur.com/QxQny93.png"
       /></router-link>
     </div>
     <div class="middle">
       <div class="item">
-        <router-link to="/login" name="Login" class="nav-btn"
-          ><img
-            class="login"
-            src="http://cdn.onlinewebfonts.com/svg/img_150170.png"
-          />
+        <router-link to="/login" name="Login"> Login • </router-link>
+      </div>
+      <div class="item">
+        <router-link to="/news" name="news" class="item">
+          • Latest NeuroNews •
         </router-link>
       </div>
       <div class="item">
-        <router-link to="/news" name="news" class="nav-btn">
-          News•
-        </router-link>
+        <router-link to="/articles" name="articles"> • Community •</router-link>
       </div>
       <div class="item">
-        <router-link to="/articles" name="articles" class="nav-btn">
-          Articles•
-        </router-link>
+        <router-link to="/about" name="about"> • About </router-link>
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <router-link to="/createpost" name="post" class="nav-btn">
           Post</router-link
         >
-      </div>
+      </div> -->
     </div>
     <div class="right">
-      <ResourceDrop title="☰" />
+      <ResourceDrop class="hamburger" title="☰" />
     </div>
   </div>
 </template>
@@ -59,8 +55,8 @@ export default {
 }
 .item {
   font-size: 30px;
-  padding: 15px;
   display: inline-block;
+  max-height: 60px;
 }
 .left,
 .middle,
@@ -71,7 +67,7 @@ export default {
 }
 .left {
   text-align: left;
-  max-width: 400px;
+  max-width: 300px;
 }
 .middle {
   text-align: left;
@@ -80,23 +76,27 @@ export default {
 .right {
   max-width: 300px;
   text-align: right;
-  font-size: 55px;
   margin-right: 15px;
 }
-
+.hamburger {
+  font-size: 45px;
+}
 .logo {
   max-width: 200px;
   margin: 5px;
   border-radius: 50%;
 }
-.logo:hover,
-.login:hover {
-  transform: translateX(20px) translateY(-3px);
+.logo:hover {
+  /* transform: translateX(20px) translateY(-3px); */
   filter: brightness(140%);
+  transform: rotate(360deg);
+  transition: all 0.9s ease-in-out;
 }
 .login {
-  max-height: 100px;
+  max-height: 50px;
   margin-left: 150px;
+  margin-right: 20px;
+  padding-top: 20px;
 }
 .item:hover {
   font-weight: bolder;

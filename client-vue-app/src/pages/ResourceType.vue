@@ -1,15 +1,22 @@
 <template>
   <div v-if="resourceDetails">
-    <div class="type-name">{{ resourceDetails.resource_type }}</div>
-    <div>{{ resourceDetails.description }}</div>
-
-    <img :src="resourceDetails.picture" alt="image" />
-    <div :key="resource_card.id" v-for="resource_card in resourceCardList">
-      <ResourceCard
-        v-bind:resource_card="resource_card"
-        @handleDelete="handleDelete"
-        @resourceCardList="resourceCardList"
-      />
+    <div class="type-name">
+      {{ resourceDetails.resource_type }}
+      {{ resourceDetails.description }}
+      <img :src="resourceDetails.picture" alt="image" />
+    </div>
+    <div class="card-container">
+      <div
+        class="resource-card"
+        :key="resource_card.id"
+        v-for="resource_card in resourceCardList"
+      >
+        <ResourceCard
+          v-bind:resource_card="resource_card"
+          @handleDelete="handleDelete"
+          @resourceCardList="resourceCardList"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -62,15 +69,28 @@ img {
   margin-top: 50px;
   padding-top: 5px;
   display: flex;
-  font-size: 60px;
+  font-size: 100px;
   justify-content: space-around;
   width: 100%;
-  color: #94eee58c;
+  color: rgba(161, 255, 255, 0.568);
+  max-height: 300px;
 }
 
-.container {
-  position: absolute;
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+}
+
+.resource-card {
+  margin: 30px;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: rgba(29, 82, 110, 255);
+  border-radius: 10px;
+  text-transform: initial;
+  padding: 20px;
 }
 </style>

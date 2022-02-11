@@ -5,30 +5,30 @@
         {{ resource_card.topic }}
       </h1>
       <img :src="resource_card.image" alt="picture" />
+      <h2>
+        <div>{{ resource_card.content }}</div>
+      </h2>
       <h3 class="source">
         SOURCE: <a href="#">{{ resource_card.link }} </a>
       </h3>
-      <div></div>
-
-      <br />
-      <div>{{ resource_card.content }}</div>
-      <div class="showForm">
-        <button @click="showForm = !showForm" class="updateBtn">edit</button>
-        <div v-if="showForm" class="form-container">
-          <form>
-            <input
-              placeholder="new topic name"
-              :value="newTopic"
-              name="newTopic"
-              type="text"
-              v-on:input="handleFormChange"
-            /><br />
-            <button @click="updateResource" class="submitBtn">submit</button>
-          </form>
+    </div>
+    <div class="showForm">
+      <button @click="showForm = !showForm" class="updateBtn">edit</button>
+      <div v-if="showForm" class="form-container">
+        <form>
+          <input
+            placeholder="Edit topic"
+            :value="newTopic"
+            name="newTopic"
+            type="text"
+            v-on:input="handleFormChange"
+          />
           <button @click="deleteResource" class="deleteBtn">x</button>
-        </div>
-        <div v-else></div>
+
+          <button @click="updateResource" class="submitBtn">submit</button>
+        </form>
       </div>
+      <div v-else></div>
     </div>
   </div>
 </template>
@@ -97,72 +97,74 @@ export default {
 </script>
 
 <style scoped>
-.form-container {
-  visibility: colllapse;
-}
-.container {
-  background-color: rgba(128, 128, 128, 0.308);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 img {
   opacity: 900%;
   max-height: 200px;
   margin: 20px;
   justify-content: center;
+  border-radius: 10px;
 }
 .showForm {
   visibility: visible;
+  display: flex;
+  align-items: start;
 }
-.container {
+/* .container {
   display: grid;
   grid-template-columns: 1;
   align-items: center;
   margin: 20px;
-}
-.updateBtn {
-  width: 100px;
-  height: 30px;
-  background-color: #6ab3e4;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.updateBtn:hover {
-  background-color: #20af2c;
   color: white;
+} */
+
+.submitBtn,
+.updateBtn {
+  width: 80px;
+  height: 45px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #122b3b;
+  font-weight: bolder;
   cursor: pointer;
+  border-radius: 10px;
+  border: 4px solid;
+  color: white;
 }
-.submitBtn {
-  width: 100px;
-  height: 30px;
-  background-color: #6ab3e4;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.submitBtn:hover {
-  background-color: #20af2c;
+.submitBtn:hover,
+.updateBtn:hover {
+  background-color: #e0b12f;
   color: white;
   cursor: pointer;
 }
 .deleteBtn {
   width: 50px;
-  height: 30px;
-  background-color: #991111;
-  font-size: 20px;
-  font-weight: 700;
+  height: 45px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #8d0000;
+  font-weight: bolder;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 10px;
+  border: 4px solid;
+  color: rgba(255, 255, 255, 0.945);
 }
 a {
-  color: rgb(22, 176, 236);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+.source {
+  background-color: rgba(230, 218, 218, 0.425);
+  padding: 10px;
+  color: white;
+  border-radius: 12px;
+  max-height: 75px;
+  max-width: 700px;
+  white-space: pre-line;
 }
 .deleteBtn:hover {
-  background-color: #ff0000;
+  background-color: gray;
   color: white;
+  cursor: pointer;
 }
 </style>

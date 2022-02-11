@@ -107,8 +107,11 @@ button:hover {
 }
 img {
   height: 250px;
+  width: 300px;
   border-radius: 4px;
   opacity: 80%;
+  /* display: flex;
+  align-items: flex-start; */
 }
 
 h2 {
@@ -129,6 +132,8 @@ h1 {
   padding: 10px;
   color: white;
   border-radius: 12px;
-  max-height: 25px;
+  max-height: 45px;
+  max-width: 500px;
+  white-space: pre-line;
 }
 </style>
