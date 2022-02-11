@@ -147,7 +147,8 @@ export default {
         }
       );
       alert('Your submission has been posted!');
-      this.$router.push(`/resources/${res.data.id}`);
+      console.log(res);
+      //   this.$router.push(`/resources/${res.data.id}`);
     }
   }
 };

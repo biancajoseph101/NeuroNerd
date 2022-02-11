@@ -1,37 +1,80 @@
 <template>
-  <div>
-    <h1>sliding caurosel thing here</h1>
-    <div v-for="tag in tag_array" :key="tag.id">
-      <h2>{{ tag.title }}</h2>
-      <img :src="tag.image_url" />
+  <div class="carousel">
+    <div class="inner">
+      <div class="hack" v-for="hack in hacks" :key="hack">
+        {{ hack }}
+      </div>
     </div>
-  </div>
+
+
+  <button @click="right">right</button>
+  <button>left</button>
+
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   name: 'Home',
-  components: {},
-  data: () => ({
-    tag_array: Array
-  }),
-  mounted() {
-    this.getTags();
+data () {
+    return {
+      hacks: [1, 2, 3, 4, 5, 6, 7, 8],
+      innerStyles: {},
+      step: ''
+    }
+  },
+  mounted () {
+    this.setStep()
   },
   methods: {
-    async getTags() {
-      const res = await axios.get(`http://localhost:8000/posts/`);
-      this.tag_array = res.data;
-      console.log(this.tag_array);
+    setStep () {
+      const innerWidth = this.$refs.inner.scrollWidth 
+      const totalHacks = this.hacks.length
+      this.step = `${innerWidth / totalHacks}px` 
+    },
+
+    right () {
+      this.moveRight() 
+      this.afterTransition(() => {
+        const hack = this.hacks.shift()
+        this.hacks.push(hack)
+      })
+    },
+
+    afterTransition(callback) {
+      const listener = () => {
+        callback()
+        this.$refs.inner.removeEventListener('transitioned', listener)
+      }
+    this.$refs.inner.addEventListener('transitionend', listener)
+    },
+
+    moveLeft () {
+      this.innerStyles = {
+        transform: `translateX(-${this.step})`
     }
-    // handleDelete(id) {
-    //   this.tag_aray = this.tag_array.filter((post) => post.id !== id);
-    // }
   }
-};
+  }
+}
 </script>
 <style scoped>
+.carousel {
+  width: 300px;
+  overflow: hidden;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.2s;
+}
+
+.hack {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 h3 {
   color: #80cbc4;
 }
@@ -45,6 +88,6 @@ h3 {
 
 img {
   max-height: 200px;
-  border-radius: 7px 7px 0 0;
+  border-radius: 7px;
 }
 </style>

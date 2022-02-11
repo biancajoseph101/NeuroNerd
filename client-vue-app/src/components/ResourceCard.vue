@@ -2,21 +2,20 @@
   <div class="resource-container">
     <div class="container">
       <img :src="resource_card.image" alt="picture" />
+      <h5 class="source">
+        SOURCE: <a href="#">{{ resource_card.link }} </a>
+      </h5>
       <div>
         <h2>
           {{ resource_card.topic }}
         </h2>
       </div>
-      <div>
-        <h5 class="source">
-          SOURCE: <a href="#">{{ resource_card.link }} </a>
-        </h5>
-      </div>
+
       <br />
       <div>{{ resource_card.content }}</div>
       <div class="showForm">
-        <button @click="showForm" class="updateBtn">edit</button>
-        <div class="form-container">
+        <button @click="showForm = !showForm" class="updateBtn">edit</button>
+        <div v-if="showForm" class="form-container">
           <form>
             <input
               placeholder="new topic name"
@@ -29,6 +28,7 @@
           </form>
           <button @click="deleteResource" class="deleteBtn">x</button>
         </div>
+        <div v-else></div>
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@ import axios from 'axios';
 export default {
   name: 'ResourceCard',
   data: () => ({
-    showForm: true,
+    showForm: false,
     topic: '',
     newTopic: ''
   }),
@@ -89,7 +89,7 @@ export default {
         }
       );
       //   alert('Your update has been made!');
-      window.location.reload;
+      //   window.location.reload;
       console.log(res);
       //   this.$router.push(`/resources/${res.data.id}`);
     }
@@ -101,17 +101,23 @@ export default {
 .form-container {
   visibility: colllapse;
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 img {
   opacity: 900%;
   max-height: 200px;
   margin: 20px;
+  justify-content: center;
 }
 .showForm {
   visibility: visible;
 }
 .container {
-  display: flex;
-  grid-template-columns: max-content;
+  display: grid;
+  grid-template-columns: 1;
   align-items: center;
   margin: 20px;
 }

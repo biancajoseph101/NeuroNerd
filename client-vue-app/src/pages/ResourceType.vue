@@ -61,12 +61,7 @@ img {
 
 .container {
   position: absolute;
-  display: grid;
-  justify-content: center;
-}
-
-img {
-  width: 400px;
-  height: auto;
+  display: flex;
+  align-items: center;
 }
 </style>
