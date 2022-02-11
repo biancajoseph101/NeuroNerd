@@ -12,7 +12,7 @@
           <h3>{{ tag.content }}</h3>
         </div>
         <div v-if="readMore == true" class="read-more">
-          <button @click="readMore = !readMore">Expand</button>
+          <button @click="readMore = !readMore">Read more</button>
         </div>
         <div v-else class="read-less">
           <button @click="readMore = !readMore">Collapse</button>
@@ -33,7 +33,7 @@ export default {
   components: {},
   data: () => ({
     tag_array: Array,
-    readMore: false
+    readMore: true
   }),
   mounted() {
     this.getTags();
@@ -52,11 +52,25 @@ export default {
 </script>
 <style scoped>
 a {
-  color: rgb(55, 43, 160);
+  color: rgb(11, 63, 87);
 }
 
 button {
-  background-color: white;
+  width: 510px;
+  height: 60px;
+  margin: 10px;
+  font-size: 20px;
+  background-color: #103242;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 3px solid;
+  color: white;
+}
+button:hover {
+  background-color: #f3f3f3;
+  color: rgb(32, 90, 107);
+  cursor: pointer;
 }
 .article {
   margin: 50px;
@@ -67,8 +81,8 @@ button {
   background: rgba(29, 82, 110, 255);
   border-radius: 10px;
   text-transform: initial;
-  padding: 2px;
-  max-width: 800px;
+  padding: 20px;
+  /* max-width: 800px; */
 }
 
 .readLess {
@@ -85,12 +99,13 @@ button {
   /* max-width: 900px; */
   display: flex;
   justify-content: space-between;
-
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 400px;
 }
 img {
-  height: 100px;
-  border-radius: 3px;
+  height: 150px;
+  border-radius: 8px;
   opacity: 80%;
 }
 
@@ -102,5 +117,16 @@ h2 {
   justify-content: space-around;
   width: 100%;
   color: #94eee58c;
+}
+h1 {
+  color: white;
+  font-weight: bolder;
+}
+.source {
+  background-color: rgba(230, 218, 218, 0.425);
+  padding: 10px;
+  color: white;
+  border-radius: 12px;
+  max-height: 15px;
 }
 </style>

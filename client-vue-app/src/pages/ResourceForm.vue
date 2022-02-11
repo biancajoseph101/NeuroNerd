@@ -194,6 +194,11 @@ input {
   cursor: pointer;
 }
 
+.btn:hover {
+  background-color: #20af2c;
+  color: white;
+  cursor: pointer;
+}
 .checkbox-div {
   font-size: 30px;
   display: flex;
