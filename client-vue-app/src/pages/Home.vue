@@ -127,13 +127,7 @@ button {
   border-radius: 30px;
   font-size: 100px;
   opacity: 80%;
-  background-image: linear-gradient(
-    to right,
-    #a1d3d4,
-    #1a4344,
-    #3b9698,
-    #8ecacb
-  );
+  background-image: linear-gradient(to right, #1a4344, #3b9698, #8ecacb);
   color: white;
   border: 5px solid;
 }
@@ -181,5 +175,6 @@ img:hover {
   border: 14px solid rgb(173, 231, 248);
   border-radius: 30px;
   transform: scale(1.2);
+  filter: brightness(110%);
 }
 </style>

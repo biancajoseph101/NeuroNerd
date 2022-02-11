@@ -175,10 +175,12 @@ input {
   margin: 10px;
   font-size: 20px;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .btn:hover {
-  background-color: #20af2c;
+  background-color: #3b9698;
+
   color: white;
   cursor: pointer;
 }
