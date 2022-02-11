@@ -63,7 +63,7 @@ export default {
 }
 
 .resource-drop {
-  margin-left: 20%;
+  margin-left: 50%;
 }
 nav {
   font-size: 25px;

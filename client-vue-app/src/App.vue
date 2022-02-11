@@ -27,7 +27,7 @@ export default {
   text-align: center;
   color: #ffffff;
   margin-top: 10px;
-  background-color: rgba(153, 141, 221, 0.753);
+  background-color: rgba(0, 0, 0, 0.753);
   background-position: 100%;
 }
 
@@ -35,7 +35,7 @@ body,
 html {
   padding: 0;
   margin: 0;
-  background-color: #252e79;
+  background-color: #000000;
 
   width: 100%;
   min-height: 100%;
