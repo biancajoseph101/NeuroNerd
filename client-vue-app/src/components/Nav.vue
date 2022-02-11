@@ -92,6 +92,7 @@ export default {
 .logo:hover,
 .login:hover {
   transform: translateX(20px) translateY(-3px);
+  filter: brightness(140%);
 }
 .login {
   max-height: 100px;

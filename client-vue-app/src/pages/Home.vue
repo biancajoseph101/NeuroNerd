@@ -124,18 +124,35 @@ h2 {
 button {
   min-width: 300px;
   min-height: 100px;
-  border-radius: 20px;
+  border-radius: 30px;
   font-size: 100px;
   opacity: 80%;
-  background-color: rgba(248, 105, 23, 0.692);
+  background-image: linear-gradient(
+    to right,
+    #a1d3d4,
+    #1a4344,
+    #3b9698,
+    #8ecacb
+  );
   color: white;
   border: 5px solid;
 }
 button:hover {
   font-weight: bolder;
-  background-color: rgba(25, 152, 168, 0.774);
   cursor: pointer;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    rgb(238, 162, 48),
+    #f0d225,
+    #d68000
+  );
+  box-shadow: 0 4px 5px 0 rgba(16, 151, 147, 0.575);
 }
+
 .inner {
   white-space: nowrap;
   transition: transform 1s;
