@@ -2,13 +2,15 @@
   <div>
     <h1>Articles</h1>
     <div class="container" v-for="tag in tag_array" :key="tag.id">
-      <h2>{{ tag.title }}</h2>
-      <h4>{{ tag.date }}</h4>
+      <h1>{{ tag.title }}</h1>
+
       <img :src="tag.image_url" />
-      <h5>{{ tag.content }}</h5>
+      <h3>{{ tag.content }}</h3>
 
       <h5 class="source">
-        source: <a href="#">{{ tag.source }}</a>
+        <h4>{{ tag.date }}</h4>
+
+        SOURCE: <a href="#">{{ tag.source }}</a>
       </h5>
     </div>
   </div>
@@ -38,10 +40,6 @@ export default {
 };
 </script>
 <style scoped>
-h3 {
-  color: #80cbc4;
-}
-
 a {
   color: rgb(16, 7, 100);
 }
@@ -51,12 +49,14 @@ a {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  background: rgba(0, 0, 255, 0.342);
+  background: rgba(29, 82, 110, 255);
   border-radius: 10px;
+  text-transform: initial;
+  padding: 25px;
 }
 
 img {
   max-height: 200px;
-  border-radius: 7px 7px 0 0;
+  border-radius: 10px;
 }
 </style>

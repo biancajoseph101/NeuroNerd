@@ -40,7 +40,7 @@
                   {{ resource_type.resource_type }}
                 </label>
               </div>
-              <span>selected types: {{ selectedTypes }}</span>
+              <span class="hide">selected types: {{ selectedTypes }}</span>
             </div>
             <!-- <input
             placeholder="Resource Type"
@@ -169,6 +169,7 @@ input {
   width: 700px;
   height: 100px;
   margin: 10px;
+  font-size: 30px;
 }
 .checky {
   font-size: 20px;
@@ -180,10 +181,14 @@ input {
   justify-content: center;
   align-items: center;
 }
+.hide {
+  color: black;
+}
 .btn {
-  width: 700px;
+  width: 710px;
   height: 60px;
   margin: 10px;
+  font-size: 20px;
 }
 
 .checkbox-div {

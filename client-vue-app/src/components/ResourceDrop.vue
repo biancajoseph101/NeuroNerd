@@ -5,12 +5,12 @@
     </a>
     <transition name="fade" apear>
       <div class="sub-menu" v-if="isOpen">
-        <div class="menu-item" :key="resource.id" v-for="resource in resources">
+        <div class="mini-item" :key="resource.id" v-for="resource in resources">
           <div @click="selectResource(resource.id)">
             {{ resource.resource_type }}
           </div>
         </div>
-        <div class="menu-item">
+        <div class="mini-item">
           <router-link to="/createresource">Add Resource +</router-link>
         </div>
       </div>
@@ -47,13 +47,15 @@ export default {
 </script>
 
 <style>
-.menu-item:hover {
+.mini-item:hover {
   font-weight: bolder;
   cursor: pointer;
 }
 .menu-item {
+  display: block;
   color: white;
   text-decoration: none;
+  font-size: 35px;
 }
 
 a {
@@ -62,11 +64,15 @@ a {
   margin-top: 50px;
 }
 .sub-menu {
-  margin-top: 50px;
+  display: block;
+  margin-right: 8px;
+  margin-top: 10px;
   text-transform: none;
   cursor: pointer;
-
   color: white;
   text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.411);
+  border-radius: 15px;
+  padding: 10px;
 }
 </style>

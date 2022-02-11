@@ -27,9 +27,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #ffffff;
+  color: rgba(73, 174, 173, 255);
   margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0.753);
+  background-color: rgba(7, 27, 54, 255);
   background-position: 100%;
 }
 
@@ -37,7 +37,7 @@ body,
 html {
   padding: 0;
   margin: 0;
-  background-color: #000000;
+  background-color: rgba(7, 27, 54, 255);
 
   width: 100%;
   min-height: 100%;
