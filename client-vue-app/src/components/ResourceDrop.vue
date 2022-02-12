@@ -50,6 +50,7 @@ export default {
 .mini-item:hover {
   font-weight: bolder;
   cursor: pointer;
+  color: #4decdcde;
 }
 .menu-item {
   display: block;

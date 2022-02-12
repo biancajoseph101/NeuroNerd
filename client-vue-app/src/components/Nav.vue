@@ -7,7 +7,9 @@
     </div>
     <div class="middle">
       <div class="item">
-        <router-link to="/login" name="Login"> Login • </router-link>
+        <router-link to="/login" name="Login" class="item">
+          Login •
+        </router-link>
       </div>
       <div class="item">
         <router-link to="/news" name="news" class="item">
@@ -15,10 +17,14 @@
         </router-link>
       </div>
       <div class="item">
-        <router-link to="/articles" name="articles"> • Community •</router-link>
+        <router-link to="/articles" class="item" name="articles">
+          • Community •</router-link
+        >
       </div>
       <div class="item">
-        <router-link to="/about" name="about"> • About </router-link>
+        <router-link to="/about" class="item" name="about">
+          • About
+        </router-link>
       </div>
       <!-- <div class="item">
         <router-link to="/createpost" name="post" class="nav-btn">
@@ -46,6 +52,10 @@ export default {
 </script>
 
 <style>
+* .item {
+  margin: 0;
+  padding: 0;
+}
 .nav {
   display: flex;
   min-height: 100px;
@@ -70,8 +80,11 @@ export default {
   max-width: 300px;
 }
 .middle {
+  display: flex;
+  flex-wrap: wrap;
   text-align: left;
   padding-bottom: 20px;
+  align-items: center;
 }
 .right {
   max-width: 300px;
@@ -92,14 +105,15 @@ export default {
   transform: rotate(360deg);
   transition: all 0.9s ease-in-out;
 }
-.login {
+/* .login {
   max-height: 50px;
   margin-left: 150px;
   margin-right: 20px;
   padding-top: 20px;
-}
+} */
 .item:hover {
   font-weight: bolder;
+  color: rgb(0, 38, 82);
 }
 
 .resource-drop {
