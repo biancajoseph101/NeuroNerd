@@ -1,2 +1,2 @@
 # Replace example_django with your project root name:
-web: gunicorn NeuroNerd.wsgi
+web: gunicorn neuro_django.wsgi
